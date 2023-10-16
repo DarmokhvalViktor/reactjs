@@ -4,7 +4,7 @@ import {Persons} from "./component/Persons";
 const App = () => {
     return (
         <div>
-            <Persons/>
+            app
         </div>
     );
 };
