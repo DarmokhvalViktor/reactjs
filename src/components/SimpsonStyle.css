@@ -1,0 +1,19 @@
+#allSimpsonsBlock {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#mainSimpsonBlock {
+     width: 500px;
+     height: 500px;
+     border: 2px solid darkviolet;
+    border-radius: 5%;
+    padding: 15px;
+    margin: 10px;
+    display: flex;
+
+ }
+p {
+    font-weight: 700;
+    font-size: 20px;
+}
