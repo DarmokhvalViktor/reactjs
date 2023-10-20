@@ -16,12 +16,9 @@ const Launches = () => {
 
     useEffect(() => {
         // axios.get("https://api.spacexdata.com/v3/launches").then(({data}) => setLaunches(data));
-        launchService.getAll().then(({data}) => setLaunches(data))
+        // launchService.getAll().then(({data}) => setLaunches(data))
+        launchService.getAll().then(({data}) => setLaunches(data.filter(launch => launch.launch_year !== "2020")))
     }, [])
-
-    console.log(launches);
-    launches = launches.filter(launch => +launch.launch_year !== 2020)
-    console.log(launches)
 
     return (
         <div className={css.Launches}>
