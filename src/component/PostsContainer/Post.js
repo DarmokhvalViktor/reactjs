@@ -6,7 +6,7 @@ import css from "./Post.module.css"
 
 const Post = ({postId}) => {
 
-    const [post, setPost] = useState([]);
+    const [post, setPost] = useState({});
 
     const {userId, id, title, body} = post;
 
