@@ -22,16 +22,20 @@ import {PostDetailsPage} from "./pages/PostDetailsPage";
 import {UserPostsPage} from "./pages/UserPostsPage";
 import {userService} from "./services/userService";
 import {postService} from "./services/postService";
+import {testService} from "./services/testService";
 
 const router = createBrowserRouter([
     {path: "", element:<MainLayout/>, errorElement:<ErrorPage/>, children: [
             {index: true, element:<Navigate to={"users"}/>},
             {path: "users", element:<UsersPage/>, loader: () => userService.getAll()},
+
             {path: "users/:id", element:<UserDetailsPage/>, loader: ({params: {id}}) => userService.getById(id),
                 children: [
                     {path: "user-posts", element:<UserPostsPage/>, loader: ({params: {id}}) => postService.getPostsByUserId(id)}
                 ]},
-            {path:"posts/:id", element:<PostDetailsPage/>, loader: ({params: {id}}) => postService.getPostById(id)}
+
+            // {path:"posts/:id", element:<PostDetailsPage/>, loader: ({params: {id}}) => postService.getPostById(id)}
+            {path:"posts/:id", element:<PostDetailsPage/>, loader: ({params: {id}}) => testService.getCommentsAndPosts(id)}
         ]}
 ])
 
