@@ -8,8 +8,8 @@ const UserDetails = ({user}) => {
     const {id, name, username, email, phone, website} = user;
 
     const navigate = useNavigate();
-    const passUserId = () => {
-        navigate("user-posts", {state:{id: id}});
+    const toPosts = () => {
+        navigate("user-posts");
     }
 
     return (
@@ -20,7 +20,7 @@ const UserDetails = ({user}) => {
             <div>email: {email}</div>
             <div>phone: {phone}</div>
             <div>website: {website}</div>
-            <button onClick={() => {passUserId()}}>Posts of current user:</button>
+            <button onClick={() => {toPosts()}}>Posts of current user:</button>
         </div>
     );
 };

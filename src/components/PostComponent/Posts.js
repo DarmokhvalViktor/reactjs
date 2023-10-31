@@ -1,15 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
-import {postService} from "../../services/postService";
 import css from "./Posts.module.css"
 import {PostTitle} from "./PostTitle";
 
-const Posts = ({userId}) => {
-
-    const [posts, setPosts] = useState([]);
-    useEffect(() => {
-        postService.getPostsByUserId(userId).then(({data}) => setPosts(data))
-    }, [userId])
+const Posts = ({posts}) => {
 
     return (
         <div className={css.Posts}>

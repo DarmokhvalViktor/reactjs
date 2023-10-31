@@ -5,9 +5,10 @@ import css from "./Post.module.css";
 const PostTitle = ({post}) => {
 
     const {id, title} = post;
+
     const navigate = useNavigate();
     const passPostId = () => {
-        navigate("/post-details", {state:{id: id}});
+        navigate(`/posts/${id}`);
     }
 
     return (

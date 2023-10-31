@@ -5,7 +5,6 @@ import css from "./Post.module.css"
 const Post = ({post}) => {
     const {userId, id, title, body} = post;
 
-
     return (
         <div>
             <div className={css.Post}>

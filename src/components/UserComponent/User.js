@@ -8,7 +8,7 @@ const User = ({user}) => {
     const {id, name} = user;
     const navigate = useNavigate();
     const passId = () => {
-        navigate("../user-details", {state:{id: id}});
+        navigate(`../users/${id}`);
     }
 
     return (

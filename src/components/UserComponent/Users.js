@@ -1,16 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
-import {userService} from "../../services/userService";
 import {User} from "./User";
 import css from "./Users.module.css"
 
-const Users = () => {
-
-    const [users, setUsers] = useState([])
-
-    useEffect(() => {
-        userService.getAll().then(({data}) => setUsers(data))
-    }, [])
+const Users = ({users}) => {
 
     return (
         <div className={css.Users}>

@@ -1,22 +1,25 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation} from "react-router-dom";
+import {useLoaderData} from "react-router-dom";
 
-import {postService} from "../services/postService";
 import {Post} from "../components/PostComponent/Post";
 import {Comments} from "../components/CommentComponent/Comments";
+import {commentService} from "../services/commentService";
 
 const PostDetailsPage = () => {
 
-    const postId = useLocation().state.id;
-    const [post, setPost] = useState({});
+    const {data: post} = useLoaderData();
+    const {id} = post;
+
+    const [comments, setComments] = useState([]);
     useEffect(() => {
-        postService.getPostById(postId).then(({data}) => setPost(data))
-    }, [postId])
+        commentService.getCommentsByPostId(id).then(({data}) => setComments(data))
+    }, [id]);
+
 
     return (
         <div>
             <Post post={post}/>
-            <Comments postId={postId}/>
+            <Comments comments={comments}/>
 
         </div>
     );
