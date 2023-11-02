@@ -5,8 +5,8 @@ import {Context} from "../hoc";
 const useAppContext = () => {
     const [state, setState] = useContext(Context)
     return {
-        episodeTitle:state.episodeTitle,
-        setEpisodeTitle:(value) => setState(prev => ({...prev, episodeTitle:value}))
+        episodeTitle:state,
+        setEpisodeTitle:(value) => setState(value)
     }
 }
 
