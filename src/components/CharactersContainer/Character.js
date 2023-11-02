@@ -8,7 +8,7 @@ const Character = ({character}) => {
     const [char, setChar] = useState(null);
     useEffect(() => {
         charactersService.getCharacter(character).then(({data}) => setChar(data))
-    })
+    }, [])
 
     return (
         <div className={css.Character}>
