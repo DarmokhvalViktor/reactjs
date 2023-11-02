@@ -14,13 +14,10 @@ const EpisodesPage = () => {
     const {setEpisodeTitle} = useAppContext();
 
     useEffect(() => {
-        setEpisodeTitle(null)
-    }, [query])
-
-    useEffect(() => {
         episodeService.getAll(query.get('page')).then(({data}) => {
             setEpisodes(data)
             setPrevNext({previous: data.info.prev, next: data.info.next})
+            setEpisodeTitle(null)
         })
     }, [query.get("page"), query])
 
