@@ -1,0 +1,7 @@
+.Car {
+    border: 2px solid rebeccapurple;
+    border-radius: 10px;
+    width: calc(20% - 44px);
+    margin: 10px;
+    padding: 10px;
+}
