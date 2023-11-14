@@ -1,20 +1,22 @@
 import {useDispatch, useSelector} from "react-redux";
-import {carForUpdateActions, triggerActions} from "../redux";
+
+import {carActions} from "../redux";
 import {carsService} from "../services";
 
 const Car = ({car}) => {
     const {id, brand, price, year} = car;
 
     const dispatch = useDispatch();
-    const {trigger} = useSelector(state => state.trigger)
+    const useSelectorValue = useSelector(state => state.cars)
+    const trigger = useSelectorValue.trigger;
 
     const update = () => {
-        dispatch(carForUpdateActions.setResponse(car))
+        dispatch(carActions.setCarForUpdate(car))
     }
 
     const del = async () => {
         await carsService.deleteById(id);
-        dispatch(triggerActions.setResponse(trigger))
+        dispatch(carActions.setTrigger(!trigger))
     }
 
     return (

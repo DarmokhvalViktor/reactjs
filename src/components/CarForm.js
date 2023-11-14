@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {carValidator} from "../validators";
 import {carsService} from "../services";
-import {carForUpdateActions, triggerActions} from "../redux";
+import {carActions} from "../redux";
 import {useEffect} from "react";
 
 const CarForm = () => {
@@ -14,8 +14,12 @@ const CarForm = () => {
         resolver: joiResolver(carValidator)
     })
 
-    const {carForUpdate} = useSelector(state => state.carForUpdate)
-    const {trigger} = useSelector(state => state.trigger)
+    const useSelectorValue = useSelector(state => state.cars);
+    const carForUpdate = useSelectorValue.carForUpdate;
+    const trigger = useSelectorValue.trigger;
+
+    // const {cars:{carForUpdate}} = useSelector(state => state.carForUpdate)
+    // const {trigger} = useSelector(state => state.trigger)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -28,14 +32,14 @@ const CarForm = () => {
 
     const save = async (car) => {
         await carsService.create(car);
-        dispatch(triggerActions.setResponse(trigger))
+        dispatch(carActions.setTrigger(!trigger))
         reset()
     }
 
     const update = async(car) => {
         await carsService.updateById(carForUpdate.id, car)
-        dispatch(carForUpdateActions.setResponse(null))
-        dispatch(triggerActions.setResponse(trigger))
+        dispatch(carActions.setCarForUpdate(null))
+        dispatch(carActions.setTrigger(!trigger))
         reset()
     }
 

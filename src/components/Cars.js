@@ -8,12 +8,15 @@ import {Car} from "./Car";
 const Cars = () => {
 
     const dispatch = useDispatch();
-    const {cars} = useSelector(state => state.cars)
-    const {trigger} = useSelector(state => state.trigger)
+    const useSelectorValue = useSelector(state => state.cars)
+    const cars = useSelectorValue.cars;
+    const trigger = useSelectorValue.trigger;
+    // const {cars} = useSelector(state => state.cars)
+    // const {trigger} = useSelector(state => state.trigger)
 
     useEffect(() => {
         carsService.getAll().then(({data}) => {
-            dispatch(carActions.setResponse(data))
+            dispatch(carActions.setCars(data))
         })
     }, [trigger])
 
