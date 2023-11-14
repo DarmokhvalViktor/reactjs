@@ -11,8 +11,6 @@ const Cars = () => {
     const useSelectorValue = useSelector(state => state.cars)
     const cars = useSelectorValue.cars;
     const trigger = useSelectorValue.trigger;
-    // const {cars} = useSelector(state => state.cars)
-    // const {trigger} = useSelector(state => state.trigger)
 
     useEffect(() => {
         carsService.getAll().then(({data}) => {

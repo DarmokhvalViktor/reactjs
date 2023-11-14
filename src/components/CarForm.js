@@ -18,8 +18,6 @@ const CarForm = () => {
     const carForUpdate = useSelectorValue.carForUpdate;
     const trigger = useSelectorValue.trigger;
 
-    // const {cars:{carForUpdate}} = useSelector(state => state.carForUpdate)
-    // const {trigger} = useSelector(state => state.trigger)
     const dispatch = useDispatch();
 
     useEffect(() => {
