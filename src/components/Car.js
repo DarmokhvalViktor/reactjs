@@ -7,8 +7,7 @@ const Car = ({car}) => {
     const {id, brand, price, year} = car;
 
     const dispatch = useDispatch();
-    const useSelectorValue = useSelector(state => state.cars)
-    const trigger = useSelectorValue.trigger;
+    const {trigger} = useSelector(state => state.cars)
 
     const update = () => {
         dispatch(carActions.setCarForUpdate(car))

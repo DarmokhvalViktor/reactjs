@@ -8,9 +8,8 @@ import {Car} from "./Car";
 const Cars = () => {
 
     const dispatch = useDispatch();
-    const useSelectorValue = useSelector(state => state.cars)
-    const cars = useSelectorValue.cars;
-    const trigger = useSelectorValue.trigger;
+
+    const {trigger, cars} = useSelector(state => state.cars)
 
     useEffect(() => {
         carsService.getAll().then(({data}) => {

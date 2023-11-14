@@ -14,9 +14,7 @@ const CarForm = () => {
         resolver: joiResolver(carValidator)
     })
 
-    const useSelectorValue = useSelector(state => state.cars);
-    const carForUpdate = useSelectorValue.carForUpdate;
-    const trigger = useSelectorValue.trigger;
+    const {cars:{trigger}, carForUpdate} = useSelector(state => state.cars)
 
     const dispatch = useDispatch();
 

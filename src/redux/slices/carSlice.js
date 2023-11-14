@@ -4,7 +4,6 @@ const initialState = {
     cars:[],
     carForUpdate: null,
     trigger: false
-
 }
 
 const carSlice = createSlice({
