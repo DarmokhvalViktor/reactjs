@@ -1,4 +1,4 @@
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
 import {carActions} from "../redux";
 import {carsService} from "../services";
@@ -7,7 +7,6 @@ const Car = ({car}) => {
     const {id, brand, price, year} = car;
 
     const dispatch = useDispatch();
-    const {trigger} = useSelector(state => state.cars)
 
     const update = () => {
         dispatch(carActions.setCarForUpdate(car))
@@ -15,7 +14,7 @@ const Car = ({car}) => {
 
     const del = async () => {
         await carsService.deleteById(id);
-        dispatch(carActions.setTrigger(!trigger))
+        dispatch(carActions.trigger())
     }
 
     return (

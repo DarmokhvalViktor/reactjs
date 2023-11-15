@@ -15,7 +15,7 @@ const Cars = () => {
         carsService.getAll().then(({data}) => {
             dispatch(carActions.setCars(data))
         })
-    }, [trigger])
+    }, [trigger, dispatch])
 
     return (
         <div>
