@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.Header {
+    margin: 0;
+    padding: 0;
+    height: 100px;
+    color: white;
+    background-color: darkblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1 {
+    margin: 0;
+    padding: 0;
+}
