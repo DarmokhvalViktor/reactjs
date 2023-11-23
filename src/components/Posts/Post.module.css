@@ -1,0 +1,5 @@
+.Post {
+    width: calc(20% - 6px);
+    border: 1px solid darkorange;
+    margin: 2px;
+}

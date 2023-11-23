@@ -1,0 +1,5 @@
+.Comment {
+    width: calc(20% - 6px);
+    border: 1px solid darkturquoise;
+    margin: 2px;
+}

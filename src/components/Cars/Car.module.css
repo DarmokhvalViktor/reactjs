@@ -1,0 +1,5 @@
+.Car {
+    width: calc(20% - 6px);
+    border: 1px solid darkviolet;
+    margin: 2px;
+}
